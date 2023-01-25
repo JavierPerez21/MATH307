@@ -4,6 +4,7 @@ from fractions import Fraction
 from sympy import Matrix
 from latex_printing import sympy2tex
 from IPython.display import Latex
+import scipy
 
 def _num_to_latex(num, precision=10):
     """Takes a complex number as input and returns a latex representation
@@ -211,5 +212,7 @@ def a2l(array=None, prefix="", precision=10, source=False, max_size=8):
         return outstr
 
 def normalize(x):
-    n = math.sqrt(sum([x[i]*x[i] for i in range(0, len(b))]))
+    n = math.sqrt(sum([x[i]*x[i] for i in range(0, len(x))]))
     return x/n
+
+# Find LU decomposition with: L, U, _ = A.LUdecomposition()
